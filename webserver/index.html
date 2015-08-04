@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>Rimbaud Monitoring System</title>
+    <style>
+      body {
+        background: url('tank.jpg') #d8e2ad;
+        background-size: cover;
+        background-attachment:fixed;
+        text-align: center;
+      }
+      div#cam, div#age, div#charts, div#stats {
+        margin-bottom: 0 auto 2em auto;
+        display: inline-block;
+      }
+      div#age, div#stats {
+        background-color: #181211;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 30px;
+        color: white;
+        font-family: sans-serif;
+      }
+      div#age {
+        font-size: 2em;
+      }
+      div#stats {
+        font-size: 1em;
+      }
+      img {
+        border-radius: 10px;
+      }
+    </style>
+    <script src="moment.js"></script>
+    <script src="readable-range.js"></script>
+</head>
+  <body>
+    <h1><img src="title.gif" alt="Rimbaud's House" title="Rimbaud's House"/></h1>
+    <div id="cam"><img src="upload/photo.jpg"/></div><div/>
+    <div id="age"></div><div/>
+    <div id="charts"><img src="upload/temp.png"/> <img src="upload/humid.png"/></div><div/>
+    <div id="stats"></div>
+    <script>
+    document.getElementById("age").innerHTML = 'Today, Rimbaud is ' + moment().startOf('day').preciseDiff(moment([2014,10,01])) + ' old.';
+
+    var client = new XMLHttpRequest();
+    client.open('GET', '/upload/stats.html');
+    client.onreadystatechange = function() {
+      document.getElementById("stats").innerHTML = client.responseText;
+    }
+    client.send();
+    </script>
+  </body>
+</html>
