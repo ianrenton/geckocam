@@ -6,19 +6,22 @@
 # Written by Ian Renton (http://ianrenton.com)
 
 from datetime import datetime
-import os
+import numpy
 import AM2315 as a
 
 # Constants
 TIME_FORMAT = "%Y-%m-%d-%H-%M-%S"
 
-# Acquire data
-temp = 0
-humid = 0
-while (temp == 0) or (humid == 0): # fetching temp and humid sometimes fails so repeat until successful
+# Acquire data. Grab several values and calculate the median to strip out any
+# outliers that sometimes occur.
+temps = []
+humids = []
+for num in range(1,20):
   sensor=a.AM2315()
-  temp = sensor.temperature()
-  humid = sensor.humidity()
+  temps.append(sensor.temperature())
+  humids.append(sensor.humidity())
+temp = numpy.median(temps)
+humid = numpy.median(humids)
 
 # Write data to file
 csvdata = datetime.now().strftime(TIME_FORMAT) + ',' + str(temp) + ',' + str(humid) + '\n'

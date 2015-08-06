@@ -29,7 +29,7 @@ The Raspberry Pi setup is roughly as follows:
 1. Set up a cron job to run it every 15 minutes
 1. Add your user to the `i2c` and `gpio` groups
 1. Add the Quick2wire repository ([see here](http://dist.quick2wire.com/))
-1. Install `python python3 python-matplotlib quick2wire-gpio-admin quick2wire-python3-api imagemagick`
+1. Install `python python3 python-matplotlib python3-numpy quick2wire-gpio-admin quick2wire-python3-api imagemagick`
 1. Download AM2315 Python library [from here](https://code.google.com/p/am2315-python-api/source/browse/)
 1. Install the library as root with `setup.py`
 1. Add connection details in `~/.ssh/config` so you have an entry called "server" that can be logged into without a prompt (i.e. include the password there, or generate a pubkey and add that to `authorized_keys` on the server).
