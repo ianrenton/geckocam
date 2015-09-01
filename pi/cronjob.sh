@@ -21,7 +21,7 @@ echo "<u>Rimbaud Monitoring System status</u><br/>$(/usr/bin/uptime)<br/>" > sta
 echo "$(/usr/bin/whoami)@$(/bin/hostname) " >> stats.html
 echo "($(/sbin/ifconfig wlan0 | grep addr: | awk -F: '{print $2}' | awk '{print $1}'))<br/>" >> stats.html
 echo "Sensor data file size: $(stat -c %s sensordata.csv) bytes<br/>" >> stats.html
-echo "Disk space used: $(df -h | grep rootfs | awk '{print $3}'), remaining: $(df -h | grep rootfs | awk '{print $4}')" >> stats.html
+echo "Disk space used: $(df -h | grep root | awk '{print $3}'), remaining: $(df -h | grep root | awk '{print $4}')" >> stats.html
 
 # Upload everything
 scp photo.jpg server:/srv/www/rimbaud/upload/
