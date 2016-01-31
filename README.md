@@ -1,6 +1,6 @@
 # geckocam
 
-Raspberry Pi-based gecko vivarium monitoring system. You can check out our gecko at http://rimbaud.renton.es !
+Raspberry Pi-based gecko vivarium monitoring system. You can check out our gecko at [http://rimbaud.renton.es](http://rimbaud.renton.es) !
 
 # About the Software
 
