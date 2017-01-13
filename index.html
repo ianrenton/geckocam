@@ -7,6 +7,13 @@
         background-size: cover;
         background-attachment:fixed;
         text-align: center;
+        margin: 0;
+      }
+      div#offline {
+        padding: 0.5em;
+        background-color: red;
+        font-family: sans-serif;
+        font-weight: bold;
       }
       div#cam, div#age, div#charts, div#stats {
         margin-bottom: 0 auto 2em auto;
@@ -34,6 +41,7 @@
     <script src="readable-range.js"></script>
 </head>
   <body>
+    <div id="offline">The GeckoCam Raspberry Pi is currently offline. This page is showing old data.</div>
     <h1><img src="title.gif" alt="Rimbaud's House" title="Rimbaud's House"/></h1>
     <div id="cam"><img src="upload/photo.jpg"/></div><div/>
     <div id="age"></div><div/>
